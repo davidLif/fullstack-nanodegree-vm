@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from database.database_setup import Base, Restaurant, MenuItem
+from servergateway.database.database_setup import Base, Restaurant, MenuItem
 
 engine = create_engine('sqlite:///restaurantmenu.db')
 
@@ -39,3 +39,4 @@ session.commit()
 pizza_to_delete = session.query(MenuItem).filter_by(name='Pizza2').one()
 session.delete(pizza_to_delete)
 session.commit()
+session.close()
